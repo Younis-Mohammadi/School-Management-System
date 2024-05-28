@@ -13,39 +13,46 @@
         <ul class="nav">
             @if (Auth::user()->user_type == 1)
                 <li class="nav-item">
-                    <a href="{{url('admin/dashboard')}}"
-                        class="nav-link @if (Request::segment(2) == 'dashboard') active @endif">
+                    <a href="{{url('admin/dashboard')}}" class="nav-link">
                         <i class="link-icon" data-feather="box"></i>
                         <span class="link-title">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('admin/admin/list')}}"
-                        class="nav-link @if (Request::segment(2) == 'admin') active @endif">
+                    <a href="{{url('admin/admin/list')}}" class="nav-link">
                         <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Admin</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/class/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">Class</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/subject/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">Subject</span>
+                    </a>
+                </li>
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
-                    <a href="{{url('tracher/dashboard')}}"
-                        class="nav-link @if (Request::segment(2) == 'dashboard') active @endif">
+                    <a href="{{url('tracher/dashboard')}}" class="nav-link">
                         <i class="link-icon" data-feather="box"></i>
                         <span class="link-title">Dashboard</span>
                     </a>
                 </li>
             @elseif(Auth::user()->user_type == 3)
                 <li class="nav-item">
-                    <a href="{{url('student/dashboard')}}"
-                        class="nav-link @if (Request::segment(2) == 'dashboard') active @endif">
+                    <a href="{{url('student/dashboard')}}" class="nav-link">
                         <i class="link-icon" data-feather="box"></i>
                         <span class="link-title">Dashboard</span>
                     </a>
                 </li>
             @elseif(Auth::user()->user_type == 4)
                 <li class="nav-item">
-                    <a href="{{url('parent/dashboard')}}"
-                        class="nav-link @if (Request::segment(2) == 'dashboard') active @endif">
+                    <a href="{{url('parent/dashboard')}}" class="nav-link">
                         <i class="link-icon" data-feather="box"></i>
                         <span class="link-title">Dashboard</span>
                     </a>
@@ -300,4 +307,17 @@
             </ul>
         </div>
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    navLinks.forEach(function (navLink) {
+                        navLink.classList.remove('active');
+                    });
+                    event.target.classList.add('active');
+                });
+            });
+        });
+    </script>
     <!-- partial -->
