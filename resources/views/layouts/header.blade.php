@@ -44,7 +44,7 @@
                 </li>
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
-                    <a href="{{url('tracher/dashboard')}}" class="nav-link">
+                    <a href="{{url('teacher/dashboard')}}" class="nav-link">
                         <i class="link-icon" data-feather="box"></i>
                         <span class="link-title">Dashboard</span>
                     </a>
@@ -283,12 +283,35 @@
                             </div>
                         </div>
                         <ul class="list-unstyled p-1">
-                            <li class="dropdown-item py-2">
-                                <a href="pages/general/profile.html" class="text-body ms-0">
-                                    <i class="me-2 icon-md" data-feather="user"></i>
-                                    <span>Profile</span>
-                                </a>
-                            </li>
+                            @if (Auth::user()->user_type == 1)
+                                <li class="dropdown-item py-2">
+                                    <a href="{{url('admin/change_password')}}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="user"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                            @elseif(Auth::user()->user_type == 2)
+                                <li class="dropdown-item py-2">
+                                    <a href="{{url('teacher/change_password')}}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="user"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                            @elseif(Auth::user()->user_type == 3)
+                                <li class="dropdown-item py-2">
+                                    <a href="{{url('student/change_password')}}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="user"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                            @elseif(Auth::user()->user_type == 4)
+                                <li class="dropdown-item py-2">
+                                    <a href="{{url('parent/change_password')}}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="user"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="dropdown-item py-2">
                                 <a href="javascript:;" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="edit"></i>
