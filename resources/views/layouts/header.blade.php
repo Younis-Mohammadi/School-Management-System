@@ -36,6 +36,12 @@
                         <span class="link-title">Subject</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/assign_subject/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">Assign Subject</span>
+                    </a>
+                </li>
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
                     <a href="{{url('tracher/dashboard')}}" class="nav-link">

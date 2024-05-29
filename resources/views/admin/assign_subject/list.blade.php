@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         @include('_message')
         <div>
-            <h1>Subject List (Total : {{$getRecord->total()}})</h1>
+            <h1>Assign Subject List (Total :{{$getRecord->total()}})</h1>
         </div>
     </div>
     <div class="row">
@@ -17,17 +17,15 @@
                         @csrf
                         <div class="row mb-3">
                             <div class="col-md-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control mb-4 mb-md-0" value="" name="name"
-                                    placeholder="Name">
+                                <label class="form-label">Class Name</label>
+                                <input type="text" class="form-control mb-4 mb-md-0"
+                                    value="{{Request::get('class_name')}}" name="class_name" placeholder="Class Name">
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">Subject Type</label>
-                                <select name="type" id="type" class="form-control form-select">
-                                    <option value="">Select Type</option>
-                                    <option {{(Request::get('type') == 'theory') ? 'selected' : ''}} value="theory">Theory</option>
-                                    <option {{(Request::get('type') == 'practical') ? 'selected' : ''}} value="practical">Practical</option>
-                                </select>
+                                <label class="form-label">Subject Name</label>
+                                <input type="text" class="form-control mb-4 mb-md-0"
+                                    value="{{Request::get('subject_name')}}" name="subject_name"
+                                    placeholder="Subject Name">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Date</label>
@@ -36,7 +34,7 @@
                             <div class="col-md-3">
                                 <button type="submit" class="btn btn-inverse-primary"
                                     style="margin-top: 22px;">Search</button>
-                                <a href="{{url('admin/subject/list')}}" class="btn btn-inverse-danger"
+                                <a href="{{url('admin/assign_subject/list')}}" class="btn btn-inverse-danger"
                                     style="margin-top: 22px;">Reset</a>
                             </div>
                         </div>
@@ -49,8 +47,8 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center p-4">
-                    <h3 class="mb-3">Subjects</h3>
-                    <a href="{{url('admin/subject/add')}}" class="btn btn-outline-light">Add Subject</a>
+                    <h3 class="mb-3">Assign Subject</h3>
+                    <a href="{{url('admin/assign_subject/add')}}" class="btn btn-outline-light">Add Assign Subject</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -58,8 +56,8 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>#</th>
+                                    <th>Class Name</th>
                                     <th>Subject Name</th>
-                                    <th>Subject Type</th>
                                     <th>Status</th>
                                     <th>Created By</th>
                                     <th>Created Date</th>
@@ -73,8 +71,8 @@ $count = 0;
                                 @foreach ($getRecord as $value)
                                     <tr class="text-center">
                                         <td>{{++$count}}</td>
-                                        <td>{{$value->name}}</td>
-                                        <td>{{$value->type}}</td>
+                                        <td>{{$value->class_name}}</td>
+                                        <td>{{$value->subject_name}}</td>
                                         <td>
                                             @if($value->status == 0)
                                                 <span class="badge bg-success">Active</span>
@@ -82,14 +80,13 @@ $count = 0;
                                                 <span class="badge bg-danger">Inactive</span>
                                             @endif
                                         </td>
-
                                         <td>{{$value->created_by_name}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         <td>
-                                            <a class="btn" href="{{url('admin/subject/edit/' . $value->id)}}">
+                                            <a class="btn" href="{{url('admin/assign_subject/edit/' . $value->id)}}">
                                                 <i data-feather="edit" class="link-icon text-warning"></i>
                                             </a>
-                                            <a class="btn" href="{{url('admin/subject/delete/' . $value->id)}}">
+                                            <a class="btn" href="{{url('admin/assign_subject/delete/' . $value->id)}}">
                                                 <i data-feather="trash-2" class="link-icon text-danger"></i>
                                             </a>
                                         </td>
