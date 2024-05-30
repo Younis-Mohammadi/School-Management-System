@@ -117,7 +117,7 @@
                                 <input type="file" class="form-control mb-4 mb-md-0" name="profile_pic">
                                 <div class="text-danger">{{$errors->first('profile_pic')}}</div>
                                 @if(!empty($getRecord->getProfile()))
-                                    <img src="{{$getRecord->getProfile()}}" style="width: 100px;" alt="">
+                                    <img src="{{$getRecord->getProfile()}}" style="width: auto; height:50px;" alt="">
                                 @endif
                             </div>
                             <div class="col-md-6 mb-3">
