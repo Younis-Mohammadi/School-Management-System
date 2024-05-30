@@ -34,8 +34,8 @@
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Admission Number<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control mb-4 mb-md-0"
-                                    value="{{old('admission_number', $getRecord->admission_number)}}" name="admission_number"
-                                    placeholder="Admission Number" required>
+                                    value="{{old('admission_number', $getRecord->admission_number)}}"
+                                    name="admission_number" placeholder="Admission Number" required>
                                 <div class="text-danger">{{$errors->first('admission_number')}}</div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -77,7 +77,8 @@
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Date of Birth <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control mb-4 mb-md-0"
-                                    value="{{old('date_of_birth', $getRecord->date_of_birth)}}" name="date_of_birth" required>
+                                    value="{{old('date_of_birth', $getRecord->date_of_birth)}}" name="date_of_birth"
+                                    required>
                                 <div class="text-danger">{{$errors->first('date_of_birth')}}</div>
 
                             </div>
@@ -106,7 +107,8 @@
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Admission Date <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control mb-4 mb-md-0"
-                                    value="{{old('admission_date', $getRecord->admission_date)}}" name="admission_date" required>
+                                    value="{{old('admission_date', $getRecord->admission_date)}}" name="admission_date"
+                                    required>
                                 <div class="text-danger">{{$errors->first('admission_date')}}</div>
 
                             </div>
@@ -114,7 +116,9 @@
                                 <label class="form-label">Profile Picture <span class="text-danger"></span></label>
                                 <input type="file" class="form-control mb-4 mb-md-0" name="profile_pic">
                                 <div class="text-danger">{{$errors->first('profile_pic')}}</div>
-
+                                @if(!empty($getRecord->getProfile()))
+                                    <img src="{{$getRecord->getProfile()}}" style="width: 100px;" alt="">
+                                @endif
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Blood Group <span class="text-danger"></span></label>
@@ -141,7 +145,8 @@
                                 <label class="form-label">Status <span class="text-danger">*</span></label>
                                 <select name="status" id="status" class="form-control form-select" required>
                                     <option value="">Select Status</option>
-                                    <option {{(old('status', $getRecord->status) == 0) ? 'selected' : ''}} value="0">Active
+                                    <option {{(old('status', $getRecord->status) == 0) ? 'selected' : ''}} value="0">
+                                        Active
                                     </option>
                                     <option {{(old('status', $getRecord->status) == 1) ? 'selected' : ''}} value="1">
                                         Inactive</option>
