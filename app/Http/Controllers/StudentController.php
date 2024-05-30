@@ -36,7 +36,7 @@ class StudentController extends Controller
             'roll_number' => 'max:15',
             'caste' => 'max:50',
             'Religion' => 'max:50',
-            'mobile_number' => 'max:15',
+            'mobile_number' => 'max:15|min:8',
         ]);
 
         $student = new User;
