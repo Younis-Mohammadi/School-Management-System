@@ -1,3 +1,4 @@
+
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
@@ -28,6 +29,12 @@
                     <a href="{{url('admin/student/list')}}" class="nav-link">
                         <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Student</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/parent/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">Parent</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,6 +77,7 @@
                     </a>
                 </li>
             @endif
+
         </ul>
     </div>
 </nav>
@@ -318,6 +326,7 @@
                                     </a>
                                 </li>
                             @endif
+
                             <li class="dropdown-item py-2">
                                 <a href="javascript:;" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="edit"></i>
@@ -342,17 +351,4 @@
             </ul>
         </div>
     </nav>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    navLinks.forEach(function (navLink) {
-                        navLink.classList.remove('active');
-                    });
-                    event.target.classList.add('active');
-                });
-            });
-        });
-    </script>
-    <!-- partial -->
+    

@@ -9,6 +9,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassSubjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ParentController;
 
 Route::get('/', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'AuthLogin']);
@@ -32,8 +33,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/student/add', [StudentController::class, 'insert']);
     Route::get('admin/student/edit/{id}', [StudentController::class, 'edit']);
     Route::post('admin/student/edit/{id}', [StudentController::class, 'update']);
-    Route::get('admin/student/delete/{id}', [StudentController::class,'delete']);
+    Route::get('admin/student/delete/{id}', [StudentController::class, 'delete']);
 
+    // parent routes 
+    Route::get('admin/parent/list', [ParentController::class, 'list']);
+    Route::get('admin/parent/add', [ParentController::class, 'add']);
+    Route::post('admin/parent/add', [ParentController::class, 'insert']);
     // class routes 
     Route::get('admin/class/list', [ClassController::class, 'list']);
     Route::get('admin/class/add', [ClassController::class, 'add']);
