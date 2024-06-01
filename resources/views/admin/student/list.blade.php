@@ -149,7 +149,7 @@ $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
-                                    <tr class="text-center">
+                                    <tr class="text-center" style="vertical-align: middle;">
                                         <td>{{++$count}}</td>
                                         <td>
                                             @if (!empty($value->getProfile()))

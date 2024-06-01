@@ -3,8 +3,8 @@
 
 <div class="page-content">
 
+    @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
-        @include('_message')
         <div>
             <h1>Parent List (Total :{{$getRecord->total()}})</h1>
         </div>
@@ -72,15 +72,16 @@ $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
-                                    <tr class="text-center">
+                                    <tr class="text-center" style="vertical-align: middle;">
                                         <td>{{++$count}}</td>
                                         <td>
                                             @if (!empty($value->getProfile()))
                                                 <img src="{{$value->getProfile()}}"
-                                                    style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                                    style="width: 50px; height: 50px; border-radius: 50%;"
+                                                    alt="Parent Image Here">
                                             @endif
                                         </td>
-                                        <td>{{$value->name}}</td>
+                                        <td>{{$value->name}} {{$value->last_name}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->gender}}</td>
                                         <td>{{$value->mobile_number}}</td>

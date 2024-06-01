@@ -81,7 +81,10 @@ class StudentController extends Controller
             $data['$header_title'] = 'Edit Student';
             return view('admin.student.edit', $data);
         } else {
-            abort(404);
+            // abort('404');
+            $route = "admin/student/list";
+            $part = "student";
+            return view('page404', compact('route', 'part'));
         }
     }
 

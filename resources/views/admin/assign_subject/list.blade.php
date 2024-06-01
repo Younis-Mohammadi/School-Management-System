@@ -69,7 +69,7 @@ $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
-                                    <tr class="text-center">
+                                    <tr class="text-center" style="vertical-align: middle;">
                                         <td>{{++$count}}</td>
                                         <td>{{$value->class_name}}</td>
                                         <td>{{$value->subject_name}}</td>

@@ -25,8 +25,10 @@
                                 <label class="form-label">Subject Type</label>
                                 <select name="type" id="type" class="form-control form-select">
                                     <option value="">Select Type</option>
-                                    <option {{(Request::get('type') == 'theory') ? 'selected' : ''}} value="theory">Theory</option>
-                                    <option {{(Request::get('type') == 'practical') ? 'selected' : ''}} value="practical">Practical</option>
+                                    <option {{(Request::get('type') == 'theory') ? 'selected' : ''}} value="theory">Theory
+                                    </option>
+                                    <option {{(Request::get('type') == 'practical') ? 'selected' : ''}} value="practical">
+                                        Practical</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -71,7 +73,7 @@ $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
-                                    <tr class="text-center">
+                                    <tr class="text-center" style="vertical-align: middle;">
                                         <td>{{++$count}}</td>
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->type}}</td>
