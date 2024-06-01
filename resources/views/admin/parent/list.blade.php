@@ -15,22 +15,66 @@
                 <div class="card-body">
                     <form class="forms-sample" method="get">
                         @csrf
-                        <div class="row mb-3">
-                            <div class="col-md-3">
+                        <div class="row mb-2">
+                            <div class="col-md-2">
                                 <label class="form-label">Name</label>
                                 <input type="text" class="form-control mb-4 mb-md-0" value="{{Request::get('name')}}"
                                     name="name" placeholder="Name">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control mb-4 mb-md-0"
+                                    value="{{Request::get('last_name')}}" name="last_name" placeholder="Last Name">
+                            </div>
+                            <div class="col-md-2">
                                 <label class="form-label">Email</label>
                                 <input type="text" class="form-control" name="email" placeholder="Email"
                                     value="{{Request::get('email')}}">
                             </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Date</label>
+                            <div class="col-md-2">
+                                <label class="form-label">Gender</label>
+                                <select name="gender" id="gender" class="form-control form-select">
+                                    <option value="">Select Gender</option>
+                                    <option {{(Request::get('gender') == 'Male') ? 'selected' : ''}} value="Male">Male
+                                    </option>
+                                    <option {{(Request::get('gender') == 'Female') ? 'selected' : ''}} value="Female">
+                                        Female
+                                    </option>
+                                    <option {{(Request::get('gender') == 'Other') ? 'selected' : ''}} value="Other">Other
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Occupation</label>
+                                <input type="text" class="form-control" name="occupation" placeholder="Occupation"
+                                    value="{{Request::get('occupation')}}">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="Address"
+                                    value="{{Request::get('address')}}">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Mobile Number</label>
+                                <input type="text" class="form-control" name="mobile_number" placeholder="Mobile Number"
+                                    value="{{Request::get('mobile_number')}}">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Status</label>
+                                <select name="status" id="status" class="form-control form-select">
+                                    <option value="">Select Status</option>
+                                    <option {{(Request::get('status') == 100) ? 'selected' : ''}} value="100">Active
+                                    </option>
+                                    <option {{(Request::get('status') == 1) ? 'selected' : ''}} value="1">
+                                        Inactive
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Created Date</label>
                                 <input type="date" class="form-control" name="date" value="{{Request::get('date')}}">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <button type="submit" class="btn btn-inverse-primary"
                                     style="margin-top: 22px;">Search</button>
                                 <a href="{{url('admin/parent/list')}}" class="btn btn-inverse-danger"
