@@ -26,7 +26,7 @@ class ParentController extends Controller
         request()->validate([
             'email' => 'required|email|unique:users',
             'address' => 'max:255',
-            'occupation' => 'max:255',
+            'occupation' => 'max:255'
         ]);
 
         $student = new User;
@@ -55,12 +55,47 @@ class ParentController extends Controller
     {
         $data['getRecord'] = User::getSingle($id);
         if (!empty($data['getRecord'])) {
-            $data['getClass'] = ParentModel::getClass();
             $data['$header_title'] = 'Edit Parent';
             return view('admin.parent.edit', $data);
         } else {
-            abort(404);
+            $route = "admin/parent/list";
+            $part = "Parent";
+            return view('page404', compact('route', 'part'));
         }
+    }
+
+    public function update($id, Request $request)
+    {
+        request()->validate([
+            'email' => 'required|email|unique:users,email,' . $id,
+            'address' => 'max:255',
+            'occupation' => 'max:255'
+        ]);
+
+        $parent = User::getSingle($id);
+        $parent->name = trim($request->name);
+        $parent->last_name = trim($request->last_name);
+        $parent->gender = trim($request->gender);
+        $parent->occupation = trim($request->occupation);
+        $parent->address = trim($request->address);
+        $parent->mobile_number = trim($request->mobile_number);
+        if ($request->hasFile('profile_pic')) {
+            if (!empty($parent->profile_pic)) {
+                unlink('upload/profile/' . $parent->profile_pic);
+            }
+            $file = $request->file('profile_pic');
+            $randomStr = Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('upload/profile'), $filename);
+            $parent->profile_pic = $filename;
+        }
+        $parent->status = trim($request->status);
+        $parent->email = trim($request->email);
+        if (!empty($request->password)) {
+            $parent->password = Hash::make($request->password);
+        }
+        $parent->save();
+        return redirect('admin/parent/list')->with('success', 'Parent Updated Successfully!');
     }
     public function delete($id)
     {
@@ -70,7 +105,9 @@ class ParentController extends Controller
             $getRecord->save();
             return redirect()->back()->with('success', 'Parent Deleted Successfully');
         } else {
-            abort(404);
+            $route = "admin/parent/list";
+            $part = "Parent";
+            return view('page404', compact('route', 'part'));
         }
     }
 }

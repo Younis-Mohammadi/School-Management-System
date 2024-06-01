@@ -1,14 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="page-content">
-
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         <div>
-            <h1>Add New Student</h1>
+            <h1>Add New Parent</h1>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
@@ -27,9 +24,7 @@
                                 <input type="text" class="form-control mb-4 mb-md-0" value="{{old('last_name')}}"
                                     name="last_name" placeholder="Last Name" required>
                                 <div class="text-danger">{{$errors->first('last_name')}}</div>
-
                             </div>
-
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Gender <span class="text-danger">*</span></label>
                                 <select name="gender" id="gender" class="form-control form-select" required>
@@ -63,7 +58,6 @@
                                 <label class="form-label">Profile Picture <span class="text-danger"></span></label>
                                 <input type="file" class="form-control mb-4 mb-md-0" name="profile_pic">
                                 <div class="text-danger">{{$errors->first('profile_pic')}}</div>
-
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Status <span class="text-danger">*</span></label>
@@ -103,6 +97,5 @@
             </div>
         </div>
     </div>
-
 </div>
 @endsection

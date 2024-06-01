@@ -65,7 +65,7 @@
                                 </tr>
                             </thead>
                             <?php
-$count = 0;
+                                $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
