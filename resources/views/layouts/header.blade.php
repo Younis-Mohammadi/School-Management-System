@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{url('admin/teacher/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">Teacher</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{url('admin/student/list')}}" class="nav-link">
                         <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Student</span>
