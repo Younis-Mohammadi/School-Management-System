@@ -6,7 +6,7 @@
     @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         <div>
-            <h1>Parent Student List</h1>
+            <h1>Parent Student List ({{$getParent->name}} {{$getParent->last_name}})</h1>
         </div>
     </div>
     <div class="row">
@@ -102,9 +102,7 @@
                         </div>
                     </div>
                 </div>
-            @endif  
-
-          <div class="card">
+            @endif              <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center p-4">
                     <h3 class="mb-3">Parent Student List</h3>
                 </div>
@@ -115,21 +113,40 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>Profile Picture</th>
-                                    <th>Name</th>
+                                    <th>Student Name</th>
                                     <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Mobile Number</th>
-                                    <th>Occupation</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
+                                    <th>Parent Name</th>
                                     <th>Created Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <?php
-$count = 0;
-                            ?>
+
                             <tbody>
+                                @if($getRecord != null)
+                                   
+                                        @foreach ($getRecord as $value)
+                                            <tr class="text-center" style="vertical-align: middle;">
+                                                <td>{{$value->id}}</td>
+                                                <td>
+                                                    @if (!empty($value->getProfile()))
+                                                        <img src="{{$value->getProfile()}}"
+                                                            style="width: 50px; height: 50px; border-radius: 50%;" alt="">
+                                                    @endif
+                                                </td>
+                                                <td>{{$value->name}} {{$value->last_name}}</td>
+                                                <td>{{$value->email}}</td>
+                                                <td>{{$value->parent_name}}</td>
+                                                <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
+                                                <td>
+                                                    <a class="btn"
+                                                        href="{{url('admin/parent/assign_student_parent_delete/' . $value->id)}}">
+                                                        <i data-feather="trash-2"
+                                                            class="link-icon text-danger"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                @endif
                             </tbody>
                         </table>
 

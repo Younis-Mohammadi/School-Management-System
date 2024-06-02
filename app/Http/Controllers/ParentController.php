@@ -113,8 +113,11 @@ class ParentController extends Controller
 
     public function myStudent($id, Request $request)
     {
+        $data['getParent'] = User::getSingle($id);
         $data['parent_id'] = $id;
         $data['getSearchStudent'] = User::getSearchStudent($request);
+        $data['getRecord'] = User::getMyStudent($id);
+
         $data['header_title'] = "Parent Student List";
         return view('admin.parent.my_student', $data);
     }
@@ -125,5 +128,13 @@ class ParentController extends Controller
         $student->parent_id = $parent_id;
         $student->save();
         return redirect()->back()->with('success', 'Student Assigned Successfully');
+    }
+
+    public function AssignStudentParentDelete($student_id)
+    {
+        $student = User::getSingle($student_id);
+        $student->parent_id = null;
+        $student->save();
+        return redirect()->back()->with('success', 'Student Assigned Successfully Deleted');
     }
 }

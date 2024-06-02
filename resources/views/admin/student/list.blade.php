@@ -125,7 +125,8 @@
                                 <tr class="text-center">
                                     <th>#</th>
                                     <th>Profile Picture</th>
-                                    <th>Name</th>
+                                    <th>Student Name</th>
+                                    <th>Parent Name</th>
                                     <th>Email</th>
                                     <th>Admission Number</th>
                                     <th>Roll Number</th>
@@ -158,6 +159,7 @@ $count = 0;
                                             @endif
                                         </td>
                                         <td>{{$value->name}} {{$value->last_name}}</td>
+                                        <td>{{$value->parent_name}} {{$value->parent_last_name}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->admission_number}}</td>
                                         <td>{{$value->roll_number}}</td>
