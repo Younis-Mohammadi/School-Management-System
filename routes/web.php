@@ -93,6 +93,7 @@ Route::group(['middleware' => 'teacher'], function () {
     Route::post('teacher/change_password', [UserController::class, 'update_change_password']);
     // edit teacher account route 
     Route::get('teacher/account', [UserController::class, 'MyAccount']);
+    Route::post('teacher/account', [UserController::class, 'UpdateMyAccount']);
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);

@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-content">
-
+    @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         <div>
             <h1>My Account</h1>
