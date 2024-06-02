@@ -110,4 +110,20 @@ class ParentController extends Controller
             return view('page404', compact('route', 'part'));
         }
     }
+
+    public function myStudent($id, Request $request)
+    {
+        $data['parent_id'] = $id;
+        $data['getSearchStudent'] = User::getSearchStudent($request);
+        $data['header_title'] = "Parent Student List";
+        return view('admin.parent.my_student', $data);
+    }
+
+    public function AssignStudentParent($student_id, $parent_id)
+    {
+        $student = User::getSingle($student_id);
+        $student->parent_id = $parent_id;
+        $student->save();
+        return redirect()->back()->with('success', 'Student Assigned Successfully');
+    }
 }

@@ -146,6 +146,9 @@ $count = 0;
                                             <a class="btn" href="{{url('admin/parent/delete/' . $value->id)}}">
                                                 <i data-feather="trash-2" class="link-icon text-danger"></i>
                                             </a>
+                                            <a class="btn" href="{{url('admin/parent/my-student/' . $value->id)}}">
+                                                <i data-feather="user" class="link-icon text-success"></i> My Student
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
