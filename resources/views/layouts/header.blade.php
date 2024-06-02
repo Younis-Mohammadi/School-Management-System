@@ -1,4 +1,3 @@
-
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
@@ -310,11 +309,23 @@
                                         <span>Profile</span>
                                     </a>
                                 </li>
+                                <li class="dropdown-item py-2">
+                                    <a href="javascript:;" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="edit"></i>
+                                        <span>Edit Profile</span>
+                                    </a>
+                                </li>
                             @elseif(Auth::user()->user_type == 2)
                                 <li class="dropdown-item py-2">
                                     <a href="{{url('teacher/change_password')}}" class="text-body ms-0">
                                         <i class="me-2 icon-md" data-feather="user"></i>
                                         <span>Profile</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item py-2">
+                                    <a href="{{url('teacher/account')}}" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="edit"></i>
+                                        <span>Edit Profile Account</span>
                                     </a>
                                 </li>
                             @elseif(Auth::user()->user_type == 3)
@@ -324,6 +335,12 @@
                                         <span>Profile</span>
                                     </a>
                                 </li>
+                                <li class="dropdown-item py-2">
+                                    <a href="javascript:;" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="edit"></i>
+                                        <span>Edit Profile</span>
+                                    </a>
+                                </li>
                             @elseif(Auth::user()->user_type == 4)
                                 <li class="dropdown-item py-2">
                                     <a href="{{url('parent/change_password')}}" class="text-body ms-0">
@@ -331,14 +348,14 @@
                                         <span>Profile</span>
                                     </a>
                                 </li>
+                                <li class="dropdown-item py-2">
+                                    <a href="javascript:;" class="text-body ms-0">
+                                        <i class="me-2 icon-md" data-feather="edit"></i>
+                                        <span>Edit Profile</span>
+                                    </a>
+                                </li>
                             @endif
 
-                            <li class="dropdown-item py-2">
-                                <a href="javascript:;" class="text-body ms-0">
-                                    <i class="me-2 icon-md" data-feather="edit"></i>
-                                    <span>Edit Profile</span>
-                                </a>
-                            </li>
                             <li class="dropdown-item py-2">
                                 <a href="javascript:;" class="text-body ms-0">
                                     <i class="me-2 icon-md" data-feather="repeat"></i>
@@ -357,4 +374,3 @@
             </ul>
         </div>
     </nav>
-    
