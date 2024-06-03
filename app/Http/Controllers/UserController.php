@@ -13,7 +13,12 @@ class UserController extends Controller
     {
         $data['getRecord'] = User::getSingle(Auth::user()->id);
         $data['header_title'] = "My Account";
-        return view('teacher.my_account', $data);
+
+        if (Auth::user()->user_type == 2) {
+            return view('teacher.my_account', $data);
+        } else if (Auth::user()->user_type == 3) {
+            return view('student.my_account', $data);
+        }
     }
 
     public function UpdateMyAccount(Request $request)
@@ -48,6 +53,11 @@ class UserController extends Controller
         $teacher->email = trim($request->email);
         $teacher->save();
         return redirect()->back()->with('success', 'Account Updated Successfully!');
+    }
+
+    public function UpdateMyAccountStudent(Request $request)
+    {
+        dd($request->all());
     }
     public function change_password()
     {
