@@ -37,6 +37,7 @@
                                     <th>Height</th>
                                     <th>Weight</th>
                                     <th>Created Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <?php $count = 0; ?>
@@ -75,6 +76,11 @@
                                             <td>{{$value->height}}</td>
                                             <td>{{$value->weight}}</td>
                                             <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
+                                            <td>
+                                                <a class="btn" href="{{url('parent/my_student/subject/' . $value->id)}}">
+                                                    Subject <i class="link-icon fas fa-book text-primary"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif
