@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
 use Hash;
+use Str;
 
 class UserController extends Controller
 {
@@ -57,7 +58,44 @@ class UserController extends Controller
 
     public function UpdateMyAccountStudent(Request $request)
     {
-        dd($request->all());
+        $id = Auth::user()->id;
+        request()->validate([
+            'email' => 'required|email|unique:users,email,' . $id,
+            'height' => 'max:10',
+            'weight' => 'max:10',
+            'blood_group' => 'max:10',
+            'caste' => 'max:50',
+            'Religion' => 'max:50',
+            'mobile_number' => 'max:15|min:8'
+        ]);
+
+        $student = User::getSingle($id);
+        $student->name = trim($request->name);
+        $student->last_name = trim($request->last_name);
+        $student->gender = trim($request->gender);
+        if (!empty($request->date_of_birth)) {
+            $student->date_of_birth = trim($request->date_of_birth);
+        }
+        $student->caste = trim($request->caste);
+        $student->Religion = trim($request->Religion);
+        $student->mobile_number = trim($request->mobile_number);
+        if ($request->hasFile('profile_pic')) {
+            if (!empty($student->profile_pic)) {
+                unlink('upload/profile/' . $student->profile_pic);
+            }
+            $file = $request->file('profile_pic');
+            $randomStr = Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('upload/profile'), $filename);
+            $student->profile_pic = $filename;
+        }
+        $student->blood_group = trim($request->blood_group);
+        $student->height = trim($request->height);
+        $student->weight = trim($request->weight);
+        $student->email = trim($request->email);
+        $student->save();
+
+        return redirect()->back()->with('success', 'Account Updated Successfully!');
     }
     public function change_password()
     {
