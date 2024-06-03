@@ -41,7 +41,6 @@ class ClassSubjectController extends Controller
                     $save->created_by = Auth::user()->id;
                     $save->save();
                 }
-
             }
             return redirect('admin/assign_subject/list')->with('success', 'Subject Assigned Successfully to Class');
         } else {

@@ -60,6 +60,12 @@
                         <span class="link-title">Assign Subject</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/assign_class_teacher/list')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user-plus"></i>
+                        <span class="link-title">Assign Class Teacher</span>
+                    </a>
+                </li>
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
                     <a href="{{url('teacher/dashboard')}}" class="nav-link">
