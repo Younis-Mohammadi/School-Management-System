@@ -19,6 +19,8 @@ class UserController extends Controller
             return view('teacher.my_account', $data);
         } else if (Auth::user()->user_type == 3) {
             return view('student.my_account', $data);
+        } else if (Auth::user()->user_type == 4) {
+            return view('parent.my_account', $data);
         }
     }
 
@@ -95,6 +97,37 @@ class UserController extends Controller
         $student->email = trim($request->email);
         $student->save();
 
+        return redirect()->back()->with('success', 'Account Updated Successfully!');
+    }
+
+    public function UpdateMyAccountParent(Request $request)
+    {
+        $id = Auth::user()->id;
+        request()->validate([
+            'email' => 'required|email|unique:users,email,' . $id,
+            'address' => 'max:255',
+            'occupation' => 'max:255'
+        ]);
+
+        $parent = User::getSingle($id);
+        $parent->name = trim($request->name);
+        $parent->last_name = trim($request->last_name);
+        $parent->gender = trim($request->gender);
+        $parent->occupation = trim($request->occupation);
+        $parent->address = trim($request->address);
+        $parent->mobile_number = trim($request->mobile_number);
+        if ($request->hasFile('profile_pic')) {
+            if (!empty($parent->profile_pic)) {
+                unlink('upload/profile/' . $parent->profile_pic);
+            }
+            $file = $request->file('profile_pic');
+            $randomStr = Str::random(20);
+            $filename = strtolower($randomStr) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('upload/profile'), $filename);
+            $parent->profile_pic = $filename;
+        }
+        $parent->email = trim($request->email);
+        $parent->save();
         return redirect()->back()->with('success', 'Account Updated Successfully!');
     }
     public function change_password()
