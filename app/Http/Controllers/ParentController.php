@@ -142,7 +142,6 @@ class ParentController extends Controller
     {
         $id = Auth::user()->id;
         $data['getRecord'] = User::getMyStudent($id);
-
         $data['header_title'] = "My Students";
         return view('parent.my_student', $data);
     }

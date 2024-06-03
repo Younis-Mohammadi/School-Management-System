@@ -36,17 +36,16 @@
                                     <th>Blood Group</th>
                                     <th>Height</th>
                                     <th>Weight</th>
-                                    <th>Status</th>
                                     <th>Created Date</th>
                                 </tr>
                             </thead>
-
+                            <?php $count = 0; ?>
                             <tbody>
                                 @if($getRecord != null)
 
                                     @foreach ($getRecord as $value)
                                         <tr class="text-center" style="vertical-align: middle;">
-                                            <td>{{$value->id}}</td>
+                                            <td>{{++$count}}</td>
                                             <td>
                                                 @if (!empty($value->getProfile()))
                                                     <img src="{{$value->getProfile()}}"
@@ -75,13 +74,6 @@
                                             <td>{{$value->blood_group}}</td>
                                             <td>{{$value->height}}</td>
                                             <td>{{$value->weight}}</td>
-                                            <td>
-                                                @if($value->status == 0)
-                                                    <span class="badge bg-success">Active</span>
-                                                @else
-                                                    <span class="badge bg-danger">Inactive</span>
-                                                @endif
-                                            </td>
                                             <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         </tr>
                                     @endforeach
