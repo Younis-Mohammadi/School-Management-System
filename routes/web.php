@@ -118,6 +118,8 @@ Route::group(['middleware' => 'parent'], function () {
     // edit parent account route
     Route::get('parent/account', [UserController::class, 'MyAccount']);
     Route::post('parent/account', [UserController::class, 'UpdateMyAccountParent']);
+    // student account for parent route 
+    Route::get('parent/my_student', [ParentController::class, 'myStudentParent']);
 });
 
 // admin routes 

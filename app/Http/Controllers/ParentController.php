@@ -137,4 +137,13 @@ class ParentController extends Controller
         $student->save();
         return redirect()->back()->with('success', 'Student Assigned Successfully Deleted');
     }
+
+    public function myStudentParent()
+    {
+        $id = Auth::user()->id;
+        $data['getRecord'] = User::getMyStudent($id);
+
+        $data['header_title'] = "My Students";
+        return view('parent.my_student', $data);
+    }
 }

@@ -81,6 +81,12 @@
                         <span class="link-title">Dashboard</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('parent/my_student')}}" class="nav-link">
+                        <i class="link-icon" data-feather="user"></i>
+                        <span class="link-title">My Student</span>
+                    </a>
+                </li>
             @endif
 
         </ul>
