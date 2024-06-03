@@ -28,6 +28,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/admin/edit/{id}', [AdminController::class, 'update']);
     Route::get('admin/admin/delete/{id}', [AdminController::class, 'delete']);
 
+    // admin edit routes 
+    Route::get('admin/account', [UserController::class, 'MyAccount']);
+    Route::post('admin/account', [UserController::class, 'UpdateMyAccountAdmin']);
+
     // teacher routes 
     Route::get('admin/teacher/list', [TeacherController::class, 'list']);
     Route::get('admin/teacher/add', [TeacherController::class, 'add']);
