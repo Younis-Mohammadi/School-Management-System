@@ -20,13 +20,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/admin/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon fa-solid fa-user-tie"></i>
                         <span class="link-title">Admin</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/teacher/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon fa-solid fa-person-chalkboard"></i>
                         <span class="link-title">Teacher</span>
                     </a>
                 </li>
@@ -38,25 +38,25 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/parent/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon fa-solid fa-hands-holding-child"></i>
                         <span class="link-title">Parent</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/class/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon fa-solid fa-school"></i>
                         <span class="link-title">Class</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/subject/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon fa-solid fa-book"></i>
                         <span class="link-title">Subject</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{url('admin/assign_subject/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user"></i>
+                        <i class="link-icon" data-feather="user-plus"></i>
                         <span class="link-title">Assign Subject</span>
                     </a>
                 </li>
