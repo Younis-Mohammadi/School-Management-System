@@ -10,6 +10,50 @@
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
+                <div class="card-body">
+                    <form class="forms-sample" method="get">
+                        @csrf
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <label class="form-label">Class Name</label>
+                                <input type="text" class="form-control mb-4 mb-md-0" value="{{Request::get('class_name')}}"
+                                    name="class_name" placeholder="Class Name">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Teacher Name</label>
+                                <input type="text" class="form-control mb-4 mb-md-0"
+                                    value="{{Request::get('teacher_name')}}" name="teacher_name" placeholder="Teacher Name">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Status</label>
+                                <select name="status" id="status" class="form-control form-select">
+                                    <option value="">Select Status</option>
+                                    <option {{(Request::get('status') == 100) ? 'selected' : ''}} value="100">Active
+                                    </option>
+                                    <option {{(Request::get('status') == 1) ? 'selected' : ''}} value="1">
+                                        Inactive
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" name="date" value="">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-inverse-primary"
+                                    style="margin-top: 22px;">Search</button>
+                                <a href="{{url('admin/assign_class_teacher/list')}}" class="btn btn-inverse-danger"
+                                    style="margin-top: 22px;">Reset</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center p-4">
                     <h3 class="mb-3">Assign Class Teacher</h3>
                     <a href="{{url('admin/assign_class_teacher/add')}}" class="btn btn-outline-light">Add New Assign
