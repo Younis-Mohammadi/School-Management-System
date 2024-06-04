@@ -73,6 +73,12 @@
                         <span class="link-title">Dashboard</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('teacher/my_class_subject')}}" class="nav-link">
+                        <i class="link-icon fa-solid fa-school"></i>
+                        <span class="link-title">My Class & Subject</span>
+                    </a>
+                </li>
             @elseif(Auth::user()->user_type == 3)
                 <li class="nav-item">
                     <a href="{{url('student/dashboard')}}" class="nav-link">

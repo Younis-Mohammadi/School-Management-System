@@ -136,7 +136,7 @@ $count = 0;
                                             @endif
                                         </td>
                                         <td>{{$value->name}} {{$value->last_name}}</td>
-                                        <td>{{$value->parent_name}} {{$value->parent_last_name}}</td>
+                                        <!-- <td>{{$value->parent_name}} {{$value->parent_last_name}}</td> -->
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->gender}}</td>
                                         <td>
@@ -154,7 +154,7 @@ $count = 0;
                                         <td>{{$value->address}}</td>
                                         <td>{{$value->permanent_address}}</td>
                                         <td>{{$value->qualification}}</td>
-                                        <td>{{$value->experience}}</td>
+                                        <td>{{$value->work_experience}}</td>
                                         <td>{{$value->note}}</td>
                                         <td>
                                             @if($value->status == 0)

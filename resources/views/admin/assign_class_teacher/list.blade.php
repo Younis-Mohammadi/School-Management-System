@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card">    
             <div class="card">
                 <div class="card-body">
                     <form class="forms-sample" method="get">
@@ -74,7 +74,7 @@
                                 </tr>
                             </thead>
                             <?php
-$count = 0;
+                                $count = 0;
                             ?>
                             <tbody>
                                 @foreach ($getRecord as $value)
