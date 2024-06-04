@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         @include('_message')
         <div>
-            <h1>Assign Class Teacher</h1>
+            <h1>Assign Class Teacher ({{$getRecord->total()}})</h1>
         </div>
     </div>
     <div class="row">
