@@ -74,6 +74,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{url('teacher/my_student')}}" class="nav-link">
+                        <i class="link-icon fa-solid fa-school"></i>
+                        <span class="link-title">My Student</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{url('teacher/my_class_subject')}}" class="nav-link">
                         <i class="link-icon fa-solid fa-school"></i>
                         <span class="link-title">My Class & Subject</span>
