@@ -171,25 +171,19 @@ class User extends Authenticatable
                 ->join('class', 'class.id', '=', 'users.class_id', 'left')
                 ->where('users.user_type', '=', 3)
                 ->where('users.is_delete', '=', 0);
-
             if (!empty(Request::get('id'))) {
                 $return = $return->where('users.id', '=', Request::get('id'));
             }
-
             if (!empty(Request::get('name'))) {
                 $return = $return->where('users.name', 'like', '%' . Request::get('name') . '%');
             }
-
             if (!empty(Request::get('last_name'))) {
                 $return = $return->where('users.last_name', 'like', '%' . Request::get('last_name') . '%');
             }
-
             if (!empty(Request::get('email'))) {
                 $return = $return->where('users.email', 'like', '%' . Request::get('email') . '%');
             }
-
             return $return->orderBy('users.id', 'asc')->limit(50)->get();
-
         }
     }
 
@@ -264,13 +258,18 @@ class User extends Authenticatable
         return $return;
     }
 
-    static public function getTeacherStudent()
+    static public function getTeacherStudent($teacher_id)
     {
         $return = self::select('users.*', 'class.name as class_name')
             ->join('class', 'class.id', '=', 'users.class_id')
+            ->join('assign_class_teacher', 'assign_class_teacher.class_id', '=', 'class.id')
+            ->where('assign_class_teacher.teacher_id', '=', $teacher_id)    
+            ->where('assign_class_teacher.status', '=', 0)    
+            ->where('assign_class_teacher.is_delete', '=', 0)    
             ->where('users.user_type', '=', 3)
             ->where('users.is_delete', '=', 0);
         $return = $return->orderBy('users.id', 'asc')
+            ->groupBy('users.id')
             ->paginate(10);
 
         return $return;
