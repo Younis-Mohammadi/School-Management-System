@@ -116,4 +116,12 @@ class AssignClassTeacherController extends Controller
             return redirect('admin/assign_class_teacher/list')->with('success', 'Assigned Teacher Successfully Updated to Class');
         }
     }
+
+    public function delete($id)
+    {
+        $save = AssignClassTeacherModel::getSingle($id);
+        $save->delete();
+
+        return redirect()->back()->with('success', 'Assigned Teacher to Class Successfully Deleted');
+    }
 }

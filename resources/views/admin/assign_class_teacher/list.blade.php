@@ -56,7 +56,7 @@ $count = 0;
                                                 title="Single Edit">
                                                 <i data-feather="edit-2" class="link-icon text-info"></i>
                                             </a>
-                                            <a class="btn" href="{{url('admin/assign_subject/delete/' . $value->id)}}"
+                                            <a class="btn" href="{{url('admin/assign_class_teacher/delete/' . $value->id)}}"
                                                 title="Delete Row">
                                                 <i data-feather="trash-2" class="link-icon text-danger"></i>
                                             </a>
