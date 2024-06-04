@@ -48,7 +48,7 @@ $count = 0;
                                         <td>{{$value->created_by_name}}</td>
                                         <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                         <td>
-                                            <a class="btn" href="{{url('admin/assign_subject/edit/' . $value->id)}}"
+                                            <a class="btn" href="{{url('admin/assign_class_teacher/edit/' . $value->id)}}"
                                                 title="Multi Edit">
                                                 <i data-feather="edit" class="link-icon text-warning"></i>
                                             </a>
