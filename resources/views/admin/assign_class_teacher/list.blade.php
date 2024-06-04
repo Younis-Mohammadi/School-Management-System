@@ -52,7 +52,7 @@ $count = 0;
                                                 title="Multi Edit">
                                                 <i data-feather="edit" class="link-icon text-warning"></i>
                                             </a>
-                                            <a class="btn" href="{{url('admin/assign_subject/edit_single/' . $value->id)}}"
+                                            <a class="btn" href="{{url('admin/assign_class_teacher/edit_single/' . $value->id)}}"
                                                 title="Single Edit">
                                                 <i data-feather="edit-2" class="link-icon text-info"></i>
                                             </a>
