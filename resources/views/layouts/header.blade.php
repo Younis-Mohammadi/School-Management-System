@@ -61,6 +61,9 @@
                                 <a href="{{url('admin/assign_subject/list')}}" class="nav-link">Assign Subject</a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{url('admin/class_timetable/list')}}" class="nav-link">Class Timetable</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{url('admin/assign_class_teacher/list')}}" class="nav-link">Assign Class Teacher</a>
                             </li>
                         </ul>

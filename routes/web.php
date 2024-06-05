@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AssignClassTeacherController;
+use App\Http\Controllers\ClassTimetableController;
 
 Route::get('/', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'AuthLogin']);
@@ -84,6 +85,11 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'edit_single']);
     Route::post('admin/assign_subject/edit_single/{id}', [ClassSubjectController::class, 'update_single']);
+
+    // timetable routes
+    Route::get('admin/class_timetable/list', [ClassTimetableController::class, 'list']);
+    Route::post('admin/class_timetable/get_subject', [ClassTimetableController::class, 'get_subject']);
+
     // change password routes 
     Route::get('admin/change_password', [UserController::class, 'change_password']);
     Route::post('admin/change_password', [UserController::class, 'update_change_password']);
