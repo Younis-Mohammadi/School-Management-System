@@ -81,13 +81,13 @@
                                                     {{$value['week_name']}}
                                                 </th>
                                                 <td>
-                                                    <input type="time" name="timetable[{{$i}}][start_time]" class="form-control">
+                                                    <input type="time" name="timetable[{{$i}}][start_time]" value="{{$value['start_time']}}" class="form-control">
                                                 </td>
                                                 <td>
-                                                    <input type="time" name=" timetable[{{$i}}][end_time]" class="form-control">
+                                                    <input type="time" name=" timetable[{{$i}}][end_time]" value="{{$value['end_time']}}" class="form-control">
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="timetable[{{$i}}][room_number]" class="form-control">
+                                                    <input type="text" name="timetable[{{$i}}][room_number]" value="{{$value['room_number']}}" class="form-control">
                                                 </td>
                                             </tr>
                                             @php
