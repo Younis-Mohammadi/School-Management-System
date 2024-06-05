@@ -66,30 +66,6 @@
                         </ul>
                     </div>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="{{url('admin/class/list')}}" class="nav-link">
-                        <i class="link-icon fa-solid fa-school"></i>
-                        <span class="link-title">Class</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('admin/subject/list')}}" class="nav-link">
-                        <i class="link-icon fa-solid fa-book"></i>
-                        <span class="link-title">Subject</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('admin/assign_subject/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user-plus"></i>
-                        <span class="link-title">Assign Subject</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('admin/assign_class_teacher/list')}}" class="nav-link">
-                        <i class="link-icon" data-feather="user-plus"></i>
-                        <span class="link-title">Assign Class Teacher</span>
-                    </a>
-                </li> -->
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
                     <a href="{{url('teacher/dashboard')}}" class="nav-link">
