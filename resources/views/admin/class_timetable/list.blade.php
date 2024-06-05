@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-content">
-
+    @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         <div>
             <h1>Class Timetable</h1>
@@ -48,50 +48,65 @@
         </div>
     </div>
     @if (!empty(Request::get('class_id')) && !empty(Request::get('subject_id')))
-        <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center p-4">
-                    <h3>Class Timetable</h3>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="dataTableExample" class="table">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>Week</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th>Room Number</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($week as $value)
-                                    <tr class="text-center">
-                                        <th>{{$value['week_name']}}</th>
-                                        <td>
-                                            <input type="time" name="start_time" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="time" name="end_time" class="form-control">
-                                        </td>
-                                        <td>
-                                            <input type="text" name="room_number" class="form-control">
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-    
-                        <div style="padding: 10px; float: right;">
-                            <button class="btn btn-inverse-primary">Submit</button>
+        <form action="{{url('admin/class_timetable/add')}}" method="post">
+            @csrf
+            <input type="hidden" name="subject_id" value="{{Request::get('subject_id')}}" >
+            <input type="hidden" name="class_id" value="{{Request::get('class_id')}}" >
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center p-4">
+                            <h3>Class Timetable</h3>
                         </div>
-    
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="dataTableExample" class="table">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>Week</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Room Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $i = 1;
+                                       // dd($week);
+                                        @endphp
+                                        @foreach ($week as $value)
+                                            <tr class="text-center">
+                                                <th>
+                                                    <input type="hidden" name="timetable[{{$i}}][week_id]" value="{{$value['week_id']}}">
+                                                    {{$value['week_name']}}
+                                                </th>
+                                                <td>
+                                                    <input type="time" name="timetable[{{$i}}][start_time]" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="time" name=" timetable[{{$i}}][end_time]" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="timetable[{{$i}}][room_number]" class="form-control">
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $i++;
+                                            @endphp
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                <div style="padding: 10px; display: flex;justify-content: center;">
+                                    <button class="btn btn-inverse-primary">Submit</button>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </form>
     @endif
 </div>
 @endsection
