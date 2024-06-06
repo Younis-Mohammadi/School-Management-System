@@ -101,6 +101,12 @@
                         <span class="link-title">My Subject</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{url('student/my_timetable')}}" class="nav-link">
+                        <i class="link-icon" data-feather="box"></i>
+                        <span class="link-title">My Timetable</span>
+                    </a>
+                </li>
             @elseif(Auth::user()->user_type == 4)
                 <li class="nav-item">
                     <a href="{{url('parent/dashboard')}}" class="nav-link">

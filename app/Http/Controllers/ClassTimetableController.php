@@ -14,8 +14,6 @@ class ClassTimetableController extends Controller
             $data['getSubject'] = ClassSubjectModel::mySubject($request->class_id);
         }
         $getWeek = (new WeekModel())->getRecord();
-
-        // dd($getWeek);
         $week = array();
         foreach ($getWeek as $value) {
             $dataW = array();
@@ -77,5 +75,42 @@ class ClassTimetableController extends Controller
             }
         }
         return redirect()->back()->with('success', "Class Timetable Successfully Save");
+    }
+
+    // student side 
+    public function MyTimetable()
+    {
+        // $getWeek = (new WeekModel())->getRecord();
+        // $week = array();
+        // foreach ($getWeek as $value) {
+        //     $dataW = array();
+        //     $dataW['week_id'] = $value->week;
+        //     $dataW['week_name'] = $value->name;
+        //     $dataW['room_number'] = $value->room_number;
+        //     if(!empty($request->class_id) && !empty($request->subject_id)){
+        //         $classSubject = ClassSubjectTimetable::getRecordClassSubject($request->class_id, $request->subject_id, $value->week);
+        //         if(!empty($classSubject))
+        //         {
+        //             $dataW['start_time'] = $classSubject->start_time;
+        //             $dataW['end_time'] = $classSubject->end_time;
+        //             $dataW['room_number'] = $classSubject->room_number;
+        //         }
+        //         else
+        //         {
+        //             $dataW['start_time'] = '';
+        //             $dataW['end_time'] = '';
+        //             $dataW['room_number'] = '';
+        //         }
+        //     }
+        //     else{
+        //         $dataW['start_time'] = '';
+        //         $dataW['end_time'] = '';
+        //         $dataW['room_number'] = '';
+        //     }
+        //     $week[] = $dataW;
+        // }
+        // $data['week'] = $week;
+        $data['header_title'] = "My Timetable";
+        return view('student.my_timetable', $data);
     }
 }
