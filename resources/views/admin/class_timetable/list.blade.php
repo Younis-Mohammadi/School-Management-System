@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="page-content">
     @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
@@ -12,7 +11,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <form class="forms-sample" method="get">
+                    <form class="forms-sample" method="get" action="">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-md-3">
@@ -72,7 +71,6 @@
                                     <tbody>
                                         @php
                                         $i = 1;
-                                       // dd($week);
                                         @endphp
                                         @foreach ($week as $value)
                                             <tr class="text-center">
@@ -96,7 +94,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-
                                 <div style="padding: 10px; display: flex;justify-content: center;">
                                     <button class="btn btn-inverse-primary">Submit</button>
                                 </div>
