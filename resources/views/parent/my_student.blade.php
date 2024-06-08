@@ -77,7 +77,7 @@
                                             <td>{{$value->weight}}</td>
                                             <td>{{date('d-m-Y H:i A', strtotime($value->created_at))}}</td>
                                             <td>
-                                                <a class="btn" href="{{url('parent/my_student/subject/' . $value->id)}}">
+                                                <a class="btn btn-outline-light" href="{{url('parent/my_student/subject/' . $value->id)}}">
                                                     Subject <i class="link-icon fas fa-book text-primary"></i>
                                                 </a>
                                             </td>

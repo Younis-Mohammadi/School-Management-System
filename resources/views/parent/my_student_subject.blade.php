@@ -18,10 +18,11 @@
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
-                                <tr class="text-center">
+                                < class="text-center">
                                     <th>#</th>
                                     <th>Subject Name</th>
                                     <th>Subject Type</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <?php $count = 0 ?>
@@ -31,6 +32,9 @@
                                         <td>{{++$count}}</td>
                                         <td>{{$value->subject_name}}</td>
                                         <td>{{$value->subject_type}}</td>
+                                        <td>
+                                            <a href="{{url('teacher/my_class_subject/class_timetable/'.$value->class_id.'/'. $value->subject_id)}}" class="btn btn-outline-primary">My Class Timetable</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
