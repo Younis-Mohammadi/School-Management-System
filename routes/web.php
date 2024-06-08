@@ -13,6 +13,7 @@ use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AssignClassTeacherController;
 use App\Http\Controllers\ClassTimetableController;
+use App\Http\Controllers\ExaminationsController;
 
 Route::get('/', [AuthController::class, 'login']);
 Route::post('/login', [AuthController::class, 'AuthLogin']);
@@ -104,6 +105,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/assign_class_teacher/edit_single/{id}', [AssignClassTeacherController::class, 'update_single']);
     Route::get('admin/assign_class_teacher/delete/{id}', [AssignClassTeacherController::class, 'delete']);
 
+    // examination routes
+    Route::get('examinations/exam/list', [ExaminationsController::class, 'exam_list']);
+    // Route::get('admin/admin/add', [AdminController::class, 'add']);
+    // Route::post('admin/admin/add', [AdminController::class, 'insert']);
+    // Route::get('admin/admin/edit/{id}', [AdminController::class, 'edit']);
+    // Route::post('admin/admin/edit/{id}', [AdminController::class, 'update']);
+    // Route::get('admin/admin/delete/{id}', [AdminController::class, 'delete']);
 
 });
 Route::group(['middleware' => 'teacher'], function () {

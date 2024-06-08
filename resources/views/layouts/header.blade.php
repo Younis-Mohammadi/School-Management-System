@@ -69,6 +69,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="feather"></i>
+                    <span class="link-title">Examinations</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    <div class="collapse" id="uiComponents">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                        <a href="{{url('admin/examinations/exam/list')}}" class="nav-link @if (Request::segment(3) == 'exam' ) active @endif">Exam</a>
+                        </li>
+                    </ul>
+                    </div>
+                </li>
             @elseif(Auth::user()->user_type == 2)
                 <li class="nav-item">
                     <a href="{{url('teacher/dashboard')}}" class="nav-link">
