@@ -46,21 +46,5 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        $('.getClass').change(function() {
-            var class_id = $(this).val();
-            $.ajax({
-                url: "{{url('admin/class_timetable/get_subject')}}",
-                type: "POST",
-                data: {
-                    _token: "{{csrf_token()}}",
-                    class_id: class_id,
-                },
-                dataType: "json",
-                success: function(response) {
-                    $('.getSubject').html(response.html);
-                },
-            });
-        });
-    </script>
+    
 @endsection
