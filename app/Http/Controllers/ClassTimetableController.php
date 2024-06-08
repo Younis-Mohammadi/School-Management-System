@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\SubjectModel;
 use Illuminate\Http\Request;
 use App\Models\ClassModel;
 use App\Models\ClassSubjectModel;
 use App\Models\WeekModel;
 use App\Models\ClassSubjectTimetable;
+use App\Models\SubjectModel;
 use Auth;
 class ClassTimetableController extends Controller
 {
@@ -137,8 +137,6 @@ class ClassTimetableController extends Controller
                 $dataW['start_time'] = $classSubject->start_time;
                 $dataW['end_time'] = $classSubject->end_time;
                 $dataW['room_number'] = $classSubject->room_number;
-
-                
             }
             else{
                 $dataW['start_time'] = '';
@@ -150,5 +148,5 @@ class ClassTimetableController extends Controller
         $data['getRecord'] = $result;
         $data['header_title'] = "My Timetable";        
         return view('teacher.my_timetable', $data);
-    } 
+    }
 }

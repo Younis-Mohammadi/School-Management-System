@@ -4,6 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Request;
+use App\Models\WeekModel;
 
 class AssignClassTeacherModel extends Model
 {
@@ -69,5 +70,14 @@ class AssignClassTeacherModel extends Model
     static public function deleteTeacher($class_id)
     {
         return self::where('class_id', '=', $class_id)->delete();
+    }
+
+    static public function getMyTimeTable($class_id, $subject_id)
+    {
+        $getWeek = WeekModel::getWeekUseingModel(date('l'));
+        return ClassSubjectTimetable::getRecordClassSubject($class_id, $subject_id, $getWeek->week);
+
+        // $getWeek = WeekModel::getWeekUseingModel(date('l'));
+        // return ClassSubjectTimetable::getRecordClassSubject($class_id, $subject_id, $getWeek->id);
     }
 }

@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center p-4">
                             <h3>Class: {{$getClass->name}} - {{$getSubject->name}}</h3>
-                                <a href="{{url('teacher/my_class_subject')}}" class="btn btn-outline-danger"><i class="fa-solid fa-circle-arrow-left pe-2"></i> Back</a>
+                                <a href="{{url('teacher/my_class_subject')}}" class="btn btn-outline-light"><i class="fa-solid fa-circle-arrow-left pe-2"></i> Back</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
