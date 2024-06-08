@@ -18,7 +18,7 @@
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
                             <thead>
-                                < class="text-center">
+                                <tr class="text-center">
                                     <th>#</th>
                                     <th>Subject Name</th>
                                     <th>Subject Type</th>
