@@ -118,6 +118,10 @@ Route::group(['middleware' => 'teacher'], function () {
 
     // teacher's student route
     Route::get('teacher/my_student', [StudentController::class, 'MyStudent']);
+    
+    // teacher timetable route 
+    Route::get('teacher/my_class_subject/class_timetable/{class_id}/{subject_id}', [ClassTimetableController::class, 'MyTimetableTeacher']);
+
 });
 Route::group(['middleware' => 'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
