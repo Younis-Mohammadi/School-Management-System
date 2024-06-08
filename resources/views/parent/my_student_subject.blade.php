@@ -33,7 +33,7 @@
                                         <td>{{$value->subject_name}}</td>
                                         <td>{{$value->subject_type}}</td>
                                         <td>
-                                            <a href="{{url('teacher/my_class_subject/class_timetable/'.$value->class_id.'/'. $value->subject_id)}}" class="btn btn-outline-primary">My Class Timetable</a>
+                                            <a href="{{url('parent/my_student/subject/class_timetable/'.$value->class_id.'/'. $value->subject_id)}}" class="btn btn-outline-primary">My Class Timetable</a>
                                         </td>
                                     </tr>
                                 @endforeach
