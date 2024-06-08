@@ -4,7 +4,7 @@
     @include('_message')
     <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
         <div>
-            <h1>My CLass Timetable ({{$getClass->name}} - {{$getSubject->name}})</h1>
+            <h1>My CLass Timetable ({{$getClass->name}} - {{$getSubject->name}}) <span class="text-primary">({{$getStudent->name}})</span></h1>
         </div>
     </div>
         <div class="row">

@@ -6,6 +6,7 @@ use App\Models\ClassSubjectModel;
 use App\Models\WeekModel;
 use App\Models\ClassSubjectTimetable;
 use App\Models\SubjectModel;
+use App\Models\User;
 use Auth;
 class ClassTimetableController extends Controller
 {
@@ -151,10 +152,11 @@ class ClassTimetableController extends Controller
     }
     
     // Parent Side 
-    public function MyTimetableParent($class_id, $subject_id)
+    public function MyTimetableParent($class_id, $subject_id, $student_id)
     {
         $data['getClass'] = ClassModel::getSingle($class_id);
         $data['getSubject'] = SubjectModel::getSingle($subject_id);
+        $data['getStudent'] = User::getSingle($student_id);
         
         $getWeek = WeekModel::getRecord();
         $week = array();
